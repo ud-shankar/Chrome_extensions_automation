@@ -1,17 +1,15 @@
 import time
 import pytest
-from pytest_bdd import given,when,then,parsers,scenario
+from pytest_bdd import given, when, then, parsers, scenario
 from Drivers.chromedriver import driver
 
 
 @scenario("../Feature/Chrome_extensions.feature", "Test one of the feature of the extension - Google Dictionary")
-@pytest.mark.popup
 def test_popup():
     pass
 
 
 @scenario("../Feature/Chrome_extensions.feature", "Test the options page of the extension - Google Dictionary")
-@pytest.mark.options
 def test_options():
     pass
 
@@ -48,7 +46,6 @@ def search():
 def conclude():
     result = driver.find_element_by_class_name("headword").text
     print("Defination for" + result)
-    driver.quit()
 
 
 @when("User modify the languages setting of the extension")
@@ -58,4 +55,7 @@ def modify_options():
     driver.find_element_by_id("save-btn").click()
 
 
-
+@pytest.fixture(scope="session", autouse=True)
+def posttest(request):
+    yield driver
+    driver.quit()

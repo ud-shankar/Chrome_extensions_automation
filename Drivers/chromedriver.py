@@ -1,8 +1,9 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
 
 chromedriver = 'C:/Selenium/chromedriver.exe'               #path where your local chrome driver is saved
-options = webdriver.ChromeOptions()
-options.add_argument("start-maximized")
-options.add_extension("../Source/dictionary.crx")
-driver = webdriver.Chrome(chromedriver, options=options)
-
+chrome_options = Options()
+chrome_options.add_argument("start-maximized")
+chrome_options.add_extension(r"C:\Oslash\Drivers\dictionary.crx")       #path to your .crx file in your local
+driver = webdriver.Chrome(executable_path=chromedriver, options=chrome_options)

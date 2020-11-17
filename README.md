@@ -34,4 +34,4 @@ The following steps briefly describe how a new test case can be added to the fra
 1. First clone the repo to your local. 
 2. Open your terminal and point to the location.
 3. Execute the command "pip install -r requirements.txt"
-4. Tests can be executed by pointing the location of your terminal to where the project is saved and with a simple command pytest -m {test cases mark}.
+4. Tests can be executed by pointing the location of your terminal to where the project is saved and with a simple command 'pytest'.

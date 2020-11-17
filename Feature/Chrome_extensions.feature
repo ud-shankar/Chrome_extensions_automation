@@ -14,4 +14,3 @@ Feature: SDET assignment - Chrome Extension Automated Testing
         And User navigates to the popup page of the extension
         And User enter word and search for the definition
         Then User verify the definititon is found and close the browser
-
