@@ -1,7 +1,9 @@
 import time
 import pytest
 from pytest_bdd import given, when, then, parsers, scenario
-from Drivers.chromedriver import driver
+from Drivers.chromedriver import driver, options_url, popup_window_url
+
+
 
 
 @scenario("../Feature/Chrome_extensions.feature", "Test one of the feature of the extension - Google Dictionary")
@@ -16,7 +18,7 @@ def test_options():
 
 @given("User adds the extension and opens the browser")
 def initializing():
-    pass                #Chrome driver initialization and other settings are done in driver folder
+    pass                        #Chrome driver initialization and other settings are done in Drivers folder
 
 
 @when("User opens new tab")
@@ -30,9 +32,9 @@ def new_tab():
 @when(parsers.parse("User navigates to the {page} of the extension"))
 def pages(page):
     if page == "popup page":
-        driver.get("chrome-extension://mgijmajocgfcbeboacabfgobmjgjcoja/browser_action.html")               #Copy the path to your popup html file
+        driver.get(popup_window_url)
     else:
-        driver.get("chrome-extension://mgijmajocgfcbeboacabfgobmjgjcoja/options.html")                      #Copy path to your options .html file
+        driver.get(options_url)
 
 
 @when("User enter word and search for the definition")
