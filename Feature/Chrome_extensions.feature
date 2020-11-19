@@ -14,3 +14,8 @@ Feature: SDET assignment - Chrome Extension Automated Testing
         And User navigates to the popup page of the extension
         And User enter word and search for the definition
         Then User verify the definititon is found and close the browser
+
+    Scenario: Test the extension function on webpage - Google Dictionary
+        Given User adds the extension and opens the browser
+        When User navigates to the webpage of the extension
+        And User double clicks on any word in the webpage
